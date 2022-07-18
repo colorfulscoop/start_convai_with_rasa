@@ -1,0 +1,92 @@
+version: "3.1"
+
+intents:
+  - ask_france
+  - ask_america
+  - faq
+  - out_of_scope
+  - greet
+  - affirm
+  - deny
+  - inform
+  - search_wine
+
+entities:
+  - country
+  - wine_type
+
+slots:
+  country_slot:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: country
+      intent: inform
+  wine_type_slot:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: wine_type
+      intent: inform
+
+forms:
+  wine_search_form:
+    required_slots:
+      - country_slot
+      - wine_type_slot
+
+actions:
+  - action_show_recommended_wine
+
+responses:
+  utter_france:
+  - text: フランスのワインは旧世界のワインと呼ばれ、伝統的な作りのワインが多いです。
+  utter_america:
+  - text: アメリカのワインは新世界のワインと呼ばれ、果実実にあふれボリュームのあるワインが多いです。
+  utter_faq/wine:
+  - text: ワインとは、ブドウの醸造酒です。
+  utter_faq/wisky:
+  - text: ウイスキーとは、ビールの蒸留酒です。
+  utter_out_of_scope:
+  - text: すみません、お答えできないお問い合わせの可能性がございます。
+  utter_nlu_fallback:
+  - text: すみません、分かりませんでした。もう一度違う言葉でおっしゃってください。
+  utter_default:
+  - text: すみません、もう一度違う言葉でおっしゃってください。
+  utter_ask_first_visit:
+  - text: |
+      こんにちは、ワインソムリエチャットボットです。
+      ご利用は初めてですか？
+    buttons:
+    - title: はい
+      payload: /affirm
+    - title: いいえ
+      payload: /deny
+  utter_explain_chatbot:
+  - text: |
+      初めまして。
+      私はワインに関するご質問にお答えしたり、おすすめのワインをご提案したりできます。
+  utter_skip_explain_chatbot:
+  - text: |
+      いつもご利用ありがとうございます。
+      本日はどんなご用件でしょうか。
+  utter_wine_search:
+  - text: "{country_slot}の{wine_type_slot}ワインですね。お探しします。"
+  utter_ask_country_slot:
+  - text: どちらの国のワインでしょうか。
+    buttons:
+    - title: フランス
+      payload: '/inform{{"country": "フランス"}}'
+    - title: アメリカ
+      payload: '/inform{{"country": "アメリカ"}}'
+  utter_ask_wine_type_slot:
+  - text: 赤、白どちらのワインでしょうか。
+    buttons:
+    - title: 赤
+      payload: '/inform{{"wine_type": "赤"}}'
+    - title: 白
+      payload: '/inform{{"wine_type": "白"}}'
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

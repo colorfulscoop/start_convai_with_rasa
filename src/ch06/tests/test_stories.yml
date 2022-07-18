@@ -1,0 +1,39 @@
+version: "3.1"
+
+stories:
+- story: フランスのワインについて聞く
+  steps:
+  - user: "[フランス](country)のワインについて教えて"
+    intent: ask_france
+  - action: utter_france
+
+- story: 挨拶と初めて訪れたかのテスト
+  steps:
+  - user: こんにちは。はじめまして。
+    intent: greet
+  - action: utter_ask_first_visit
+  - user: はい。
+    intent: affirm
+  - action: utter_explain_chatbot
+
+- story: フォームのテスト
+  steps:
+  - user: ワインを探しています。
+    intent: search_wine
+  - action: wine_search_form
+  - active_loop: wine_search_form
+  - user: "[フランス](country)"
+    intent: inform
+  - action: wine_search_form
+  # - slot_was_set:
+  #   - country_slot: "フランス"
+  - user: "[赤](wine_type)"
+    intent: inform
+  - action: wine_search_form
+  - slot_was_set:
+    - wine_type_slot: "赤"
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_wine_search
+  - action: action_show_recommended_wine

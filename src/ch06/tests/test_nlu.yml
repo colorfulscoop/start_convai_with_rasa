@@ -1,0 +1,16 @@
+version: "3.1"
+
+nlu:
+- intent: search_wine
+  examples: |
+    - ワインを探しているのですが。
+    - ワインが欲しいです。
+- intent: inform
+  examples: |
+    - [フランス](country)
+    - [アメリカ](country)
+    - [米国](country)
+    - [赤](wine_type)
+    - [白](wine_type)
+    - [フランス](country)です。
+    - [赤](wine_type)です

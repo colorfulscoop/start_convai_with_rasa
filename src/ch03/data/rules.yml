@@ -1,0 +1,23 @@
+version: "3.1"
+
+rules:
+- rule: フランスワインについて聞く
+  steps:
+  - intent: ask_france
+  - action: utter_france
+- rule: アメリカワインについて聞く
+  steps:
+  - intent: ask_america
+  - action: utter_america
+- rule: FAQ
+  steps:
+  - intent: faq
+  - action: utter_faq
+- rule: Out of scope
+  steps:
+  - intent: out_of_scope
+  - action: utter_out_of_scope
+- rule: NLU fallback
+  steps:
+  - intent: nlu_fallback
+  - action: utter_nlu_fallback

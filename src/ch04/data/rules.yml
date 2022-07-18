@@ -1,0 +1,41 @@
+version: "3.1"
+
+rules:
+- rule: フランスワインについて聞く
+  steps:
+  - intent: ask_france
+  - action: utter_france
+- rule: アメリカワインについて聞く
+  steps:
+  - intent: ask_america
+  - action: utter_america
+- rule: FAQ
+  steps:
+  - intent: faq
+  - action: utter_faq
+- rule: Out of scope
+  steps:
+  - intent: out_of_scope
+  - action: utter_out_of_scope
+- rule: NLU fallback
+  steps:
+  - intent: nlu_fallback
+  - action: utter_nlu_fallback
+- rule: wine_search_formを開始する
+  steps:
+  - intent: search_wine
+  - action: wine_search_form
+  # wine_search_formのループを開始する
+  - active_loop: wine_search_form
+- rule: wine_search_formを終了する
+  # wine_search_formのループが起動中という条件
+  condition:
+  - active_loop: wine_search_form
+  steps:
+  - action: wine_search_form
+  # スロットが全て埋まっている条件
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  # 応答を行う
+  - action: utter_wine_search

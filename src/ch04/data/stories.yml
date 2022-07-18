@@ -1,0 +1,15 @@
+version: "3.1"
+
+stories:
+- story: 初めて訪れたか聞き、初めての場合はチャットボットの説明をする
+  steps:
+  - intent: greet
+  - action: utter_ask_first_visit
+  - intent: affirm
+  - action: utter_explain_chatbot
+- story: 初めて訪れたか聞き、初めてでない場合は説明を省略する
+  steps:
+  - intent: greet
+  - action: utter_ask_first_visit
+  - intent: deny
+  - action: utter_skip_explain_chatbot
