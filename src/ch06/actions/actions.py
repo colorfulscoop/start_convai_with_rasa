@@ -8,9 +8,9 @@ from rasa_sdk.events import SlotSet
 class ActionHelloWorld(Action):
     def __init__(self):
         self._recommend_db = {
-            ("フランス", "赤"): "ジュブレシャンベルタン",
+            ("フランス", "赤"): "ジュヴレ・シャンベルタン",
             ("フランス", "白"): "ムルソー",
-            ("アメリカ", "赤"): "ナパヴァレー",
+            ("アメリカ", "赤"): "ナパ・ヴァレー",
             ("アメリカ", "白"): "ソノマ",
         }
 

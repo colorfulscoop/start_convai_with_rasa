@@ -39,10 +39,10 @@ responses:
   utter_france:
   - text: フランスのワインは旧世界のワインと呼ばれ、伝統的な作りのワインが多いです。
   utter_america:
-  - text: アメリカのワインは新世界のワインと呼ばれ、果実実にあふれボリュームのあるワインが多いです。
+  - text: アメリカのワインは新世界のワインと呼ばれ、果実味にあふれボリュームのあるワインが多いです。
   utter_faq/wine:
   - text: ワインとは、ブドウの醸造酒です。
-  utter_faq/wisky:
+  utter_faq/whisky:
   - text: ウイスキーとは、ビールの蒸留酒です。
   utter_out_of_scope:
   - text: すみません、お答えできないお問い合わせの可能性がございます。

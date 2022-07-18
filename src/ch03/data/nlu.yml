@@ -15,7 +15,7 @@ nlu:
   examples: |
     - ワインって何？
     - ワインとは何ですか
-- intent: faq/wisky
+- intent: faq/whisky
   examples: |
     - ウイスキーって何？
     - ウイスキーとは何ですか
