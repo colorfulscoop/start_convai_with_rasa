@@ -25,8 +25,8 @@ stories:
   - user: "[フランス](country)"
     intent: inform
   - action: wine_search_form
-  # - slot_was_set:
-  #   - country_slot: "フランス"
+  - slot_was_set:
+    - country_slot: "フランス"
   - user: "[赤](wine_type)"
     intent: inform
   - action: wine_search_form

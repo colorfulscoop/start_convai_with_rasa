@@ -5,7 +5,7 @@ from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import SlotSet
 
 
-class ActionHelloWorld(Action):
+class ActionWineRecommendation(Action):
     def __init__(self):
         self._recommend_db = {
             ("フランス", "赤"): "ジュヴレ・シャンベルタン",
